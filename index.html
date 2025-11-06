@@ -61,3 +61,31 @@
   </script>
 </body>
 </html>
+<!-- Profile Slide Panel -->
+<div class="profile-slide" id="profileSlide">
+  <div class="profile-header">
+    <div class="drag-handle"></div>
+    <img id="profileAvatar" class="avatar" src="default-avatar.png" alt="Avatar">
+    <h2 id="profileName">Your Name</h2>
+    <p id="profileUsername">@username</p>
+  </div>
+
+  <hr>
+
+  <div class="profile-section">
+    <label>Bio</label>
+    <textarea id="profileBio">This is your profile bio. Edit it soon!</textarea>
+  </div>
+
+  <div class="profile-section">
+    <label>Wallet Balance</label>
+    <p id="walletBalance">1000 ORN</p>
+  </div>
+
+  <div class="profile-section">
+    <label>Upload Avatar</label>
+    <input type="file" id="avatarUpload">
+  </div>
+
+  <button onclick="saveProfile()">Save Profile</button>
+</div>
