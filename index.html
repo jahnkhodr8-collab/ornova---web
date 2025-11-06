@@ -1,29 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ornova</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: Arial, sans-serif;
-      background-color: #ffffff;
+      background-color: #f5f7fa;
     }
-
-    /* Header style */
     header {
-      background-color: #4b7bec; /* blue header */
+      background-color: #0077ff;
       color: white;
-      padding: 1rem;
-      text-align: center;
-      font-size: 1.5rem;
+      padding: 15px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      transition: opacity 0.2s;
+    }
+    nav a:hover {
+      opacity: 0.8;
     }
   </style>
 </head>
 <body>
-  <header>Ornova</header>
-  <!-- Empty page for initial layout -->
+  <header>
+    <h1>🌐 Ornova</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Explore</a>
+      <a href="#">Cities</a>
+      <a href="#">Login</a>
+    </nav>
+  </header>
 </body>
 </html>
