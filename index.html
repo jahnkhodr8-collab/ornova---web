@@ -4,18 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ornova Profile</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="profile.css" />
 </head>
 <body>
+  <!-- Header -->
   <header class="header">
     <h1>My Profile</h1>
     <nav>
-      <a href="index.html">🏠 Home</a>
-      <a href="profile.html" class="active">👤 Profile</a>
+      <a href="../index.html">🏠 Home</a>
+      <a href="index.html" class="active">👤 Profile</a>
       <a href="#">🌍 Explore</a>
     </nav>
   </header>
 
+  <!-- Main Profile Content -->
   <main class="profile-container">
     <div class="avatar"></div>
 
@@ -36,56 +38,35 @@
     </div>
   </main>
 
-  <script>
-    const avatarDiv = document.querySelector('.avatar');
-    const avatarUpload = document.getElementById('avatar-upload');
-    const usernameInput = document.getElementById('username');
-    const bioInput = document.getElementById('bio');
-    const saveBtn = document.getElementById('save-profile');
+  <!-- Slide-Up Profile Panel -->
+  <div id="profileSlidePanel" class="profile-slide-panel">
+    <div class="slide-header">
+      <div class="drag-handle"></div>
+      <img id="slideAvatar" class="avatar" src="default-avatar.png" alt="Avatar">
+      <h2 id="slideName">Your Name</h2>
+      <p id="slideUsername">@username</p>
+    </div>
 
-    avatarUpload.addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      if(file){
-        const reader = new FileReader();
-        reader.onload = function(event){
-          avatarDiv.style.backgroundImage = `url(${event.target.result})`;
-          avatarDiv.style.backgroundSize = 'cover';
-        }
-        reader.readAsDataURL(file);
-      }
-    });
+    <hr>
 
-    saveBtn.addEventListener('click', () => {
-      alert(`Profile Saved!\nUsername: ${usernameInput.value}\nBio: ${bioInput.value}`);
-    });
-  </script>
+    <div class="slide-section">
+      <label>Bio</label>
+      <textarea id="slideBio">This is your bio!</textarea>
+    </div>
+
+    <div class="slide-section">
+      <label>Wallet Balance</label>
+      <p id="slideWallet">1000 ORN</p>
+    </div>
+
+    <div class="slide-section">
+      <label>Upload Avatar</label>
+      <input type="file" id="slideAvatarUpload">
+    </div>
+
+    <button id="slideSaveBtn">Save Profile</button>
+  </div>
+
+  <script src="profile.js"></script>
 </body>
 </html>
-<!-- Profile Slide Panel -->
-<div class="profile-slide" id="profileSlide">
-  <div class="profile-header">
-    <div class="drag-handle"></div>
-    <img id="profileAvatar" class="avatar" src="default-avatar.png" alt="Avatar">
-    <h2 id="profileName">Your Name</h2>
-    <p id="profileUsername">@username</p>
-  </div>
-
-  <hr>
-
-  <div class="profile-section">
-    <label>Bio</label>
-    <textarea id="profileBio">This is your profile bio. Edit it soon!</textarea>
-  </div>
-
-  <div class="profile-section">
-    <label>Wallet Balance</label>
-    <p id="walletBalance">1000 ORN</p>
-  </div>
-
-  <div class="profile-section">
-    <label>Upload Avatar</label>
-    <input type="file" id="avatarUpload">
-  </div>
-
-  <button onclick="saveProfile()">Save Profile</button>
-</div>
