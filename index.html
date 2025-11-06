@@ -3,48 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ornova</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f5f7fa;
-    }
-    header {
-      background-color: #0077ff;
-      color: white;
-      padding: 15px 25px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 20px;
-      letter-spacing: 1px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
-      transition: opacity 0.2s;
-    }
-    nav a:hover {
-      opacity: 0.8;
-    }
-  </style>
+  <title>Ornova Profile</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>🌐 Ornova</h1>
+  <header class="header">
+    <h1>My Profile</h1>
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Explore</a>
-      <a href="#">Cities</a>
-      <a href="#">Login</a>
+      <a href="index.html">🏠 Home</a>
+      <a href="profile.html" class="active">👤 Profile</a>
+      <a href="#">🌍 Explore</a>
     </nav>
   </header>
+
+  <main class="profile-container">
+    <div class="avatar"></div>
+
+    <div class="profile-info">
+      <label for="username">Username:</label>
+      <input type="text" id="username" value="YourNameHere">
+
+      <label for="bio">Bio:</label>
+      <textarea id="bio" rows="3">This is your profile bio. Edit it soon!</textarea>
+
+      <label for="wallet">Wallet Balance:</label>
+      <input type="text" id="wallet" value="1000 ORN" readonly>
+
+      <label for="avatar-upload">Upload Avatar:</label>
+      <input type="file" id="avatar-upload" accept="image/*">
+
+      <button id="save-profile">Save Profile</button>
+    </div>
+  </main>
+
+  <script>
+    const avatarDiv = document.querySelector('.avatar');
+    const avatarUpload = document.getElementById('avatar-upload');
+    const usernameInput = document.getElementById('username');
+    const bioInput = document.getElementById('bio');
+    const saveBtn = document.getElementById('save-profile');
+
+    avatarUpload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if(file){
+        const reader = new FileReader();
+        reader.onload = function(event){
+          avatarDiv.style.backgroundImage = `url(${event.target.result})`;
+          avatarDiv.style.backgroundSize = 'cover';
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+
+    saveBtn.addEventListener('click', () => {
+      alert(`Profile Saved!\nUsername: ${usernameInput.value}\nBio: ${bioInput.value}`);
+    });
+  </script>
 </body>
 </html>
